@@ -1,0 +1,51 @@
+import java.util.*;
+
+public class CryptoAnalysis {
+    private static final String[] VOCABULARY = {"BOMB", "MEETING", "RIOT", "PLANNED", "PLANTED", "NEW YORK CITY", "BOSTON", "SAN FRANCISCO",
+            "WASHINGTON", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY", "SUNDAY", "ON", "IN"};
+
+    private static final Map<Character, Character> CIPHER_MAP = new HashMap<>();
+
+    static {
+        // Given translation key
+        char[][] keyPairs = {
+                {'A', 'M'}, {'C', 'N'}, {'D', 'O'}, {'E', 'D'}, {'I', 'E'}, {'K', 'Y'},
+                {'L', 'P'}, {'M', 'Z'}, {'N', 'F'}, {'O', 'T'}, {'P', 'Q'}, {'R', 'I'},
+                {'T', 'J'}, {'Y', 'S'}, {'G', 'X'}, {'W', 'K'} // Inferred mappings
+        };
+        for (char[] pair : keyPairs) {
+            CIPHER_MAP.put(pair[1], pair[0]); // Reverse the mapping
+        }
+    }
+
+
+    public static String decryptMessage(String encryptedMessage) {
+        StringBuilder decryptedMessage = new StringBuilder();
+        Set<Character> unknownChars = new HashSet<>();
+
+        for (char c : encryptedMessage.toCharArray()) {
+            if (c == ' ') {
+                decryptedMessage.append(' ');
+            } else if (CIPHER_MAP.containsKey(c)) {
+                decryptedMessage.append(CIPHER_MAP.get(c));
+            } else {
+                decryptedMessage.append('?'); // Placeholder for missing characters
+                unknownChars.add(c);
+            }
+        }
+
+        if (!unknownChars.isEmpty()) {
+            System.out.println("Unmapped Characters Found: " + unknownChars);
+        }
+
+        return decryptedMessage.toString();
+    }
+
+
+    public static void main(String[] args) {
+        String encryptedMessage = "ZDDJEFX QPMFFDO EF FDK STIY NEJS TF ZTFOMS";
+        String decryptedMessage = decryptMessage(encryptedMessage);
+
+        System.out.println("Decrypted Message: " + decryptedMessage);
+    }
+}
