@@ -1,0 +1,5 @@
+(Luke Skywalker, 100)
+(Orange StormTrooper, 125)(Green StormTrooper, 50)(Purple StormTrooper, 75)
+(Black AT-AT, 100)(Green AT-AT, 200)(Purple AT-ST, 150)(Black AT-ST, 250)
+(Darth Vader, 300)(Darth Maul, 200)(Darth Tyranus, 250)
+(Emperor Palpatine, 600)

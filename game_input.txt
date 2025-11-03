@@ -1,0 +1,7 @@
+Column 1: (Luke Sykwalker, 100)
+Column 2: (Orange StormTrooper, 125)(Green StormTrooper, 50)(Purple
+StormTrooper, 75)
+Column 3: (Black AT-AT,100) (Green AT-AT,200) (Purple AT-ST,150) (Black AT-
+ST, 250)
+Column 4: (Darth Vader, 300) (Darth Maul, 200) (Darth Tyranus, 250)
+Column 5: (Emperor Palpatine, 600)
